@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 7 - Holy Grail Layout Implementations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header, footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* ========== 1. FLOAT-BASED IMPLEMENTATION ========== */
+    .float-layout {
+      overflow: hidden;
+    }
+
+    .float-header, .float-footer {
+      background: #34495e;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .float-sidebar-left {
+      float: left;
+      width: 20%;
+      background: #1abc9c;
+      color: white;
+      padding: 15px;
+    }
+
+    .float-content {
+      float: left;
+      width: 60%;
+      background: #ecf0f1;
+      padding: 15px;
+    }
+
+    .float-sidebar-right {
+      float: left;
+      width: 20%;
+      background: #3498db;
+      color: white;
+      padding: 15px;
+    }
+
+    .float-footer {
+      clear: both;
+    }
+
+    @media (max-width: 768px) {
+      .float-sidebar-left,
+      .float-sidebar-right,
+      .float-content {
+        width: 100%;
+        float: none;
+      }
+    }
+
+    /* ========== 2. FLEXBOX IMPLEMENTATION ========== */
+    .flex-layout {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .flex-main {
+      display: flex;
+      flex: 1;
+    }
+
+    .flex-sidebar {
+      background: #16a085;
+      color: white;
+      width: 200px;
+      padding: 15px;
+    }
+
+    .flex-content {
+      background: #ecf0f1;
+      flex: 1;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .flex-main {
+        flex-direction: column;
+      }
+      .flex-sidebar {
+        width: 100%;
+      }
+    }
+
+    /* ========== 3. GRID IMPLEMENTATION ========== */
+    .grid-layout {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "left content right"
+        "footer footer footer";
+      grid-template-columns: 200px 1fr 200px;
+      min-height: 100vh;
+    }
+
+    .grid-header {
+      grid-area: header;
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .grid-left {
+      grid-area: left;
+      background: #1abc9c;
+      color: white;
+      padding: 15px;
+    }
+
+    .grid-content {
+      grid-area: content;
+      background: #ecf0f1;
+      padding: 20px;
+    }
+
+    .grid-right {
+      grid-area: right;
+      background: #3498db;
+      color: white;
+      padding: 15px;
+    }
+
+    .grid-footer {
+      grid-area: footer;
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-layout {
+        grid-template-areas:
+          "header"
+          "content"
+          "left"
+          "right"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Task 7: Holy Grail Layout Implementations</h1>
+  </header>
+
+  <!-- FLOAT-BASED LAYOUT -->
+  <section>
+    <h2>1️⃣ Float-Based Implementation</h2>
+    <div class="float-layout">
+      <div class="float-header">Header</div>
+      <div class="float-sidebar-left">Left Sidebar</div>
+      <div class="float-content">Main Content Area</div>
+      <div class="float-sidebar-right">Right Sidebar</div>
+      <div class="float-footer">Footer</div>
+    </div>
+  </section>
+
+  <!-- FLEXBOX LAYOUT -->
+  <section>
+    <h2>2️⃣ Flexbox Implementation</h2>
+    <div class="flex-layout">
+      <header class="flex-header">Header</header>
+      <div class="flex-main">
+        <aside class="flex-sidebar">Left Sidebar</aside>
+        <main class="flex-content">Main Content Area</main>
+        <aside class="flex-sidebar">Right Sidebar</aside>
+      </div>
+      <footer class="flex-footer" style="background:#34495e;color:white;text-align:center;padding:10px;">Footer</footer>
+    </div>
+  </section>
+
+  <!-- GRID LAYOUT -->
+  <section>
+    <h2>3️⃣ CSS Grid Implementation</h2>
+    <div class="grid-layout">
+      <div class="grid-header">Header</div>
+      <div class="grid-left">Left Sidebar</div>
+      <div class="grid-content">Main Content Area</div>
+      <div class="grid-right">Right Sidebar</div>
+      <div class="grid-footer">Footer</div>
+    </div>
+  </section>
+
+  <footer>
+    Created by Nangyal Khan — CS224L Task 7
+  </footer>
+
+</body>
+</html>

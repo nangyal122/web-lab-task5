@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1: Display Property Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    
+    .block {
+      display: block;
+      background: lightblue;
+      margin: 5px 0;
+      padding: 10px;
+    }
+
+    .inline {
+      display: inline;
+      background: lightgreen;
+      margin: 5px;
+      padding: 10px;
+    }
+
+    .inline-block {
+      display: inline-block;
+      background: lightcoral;
+      margin: 5px;
+      padding: 10px;
+      width: 120px;
+      height: 50px;
+    }
+
+    
+    .table {
+      display: table;
+      border: 2px solid black;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: table-row;
+    }
+
+    .cell {
+      display: table-cell;
+      border: 1px solid black;
+      padding: 10px 20px;
+    }
+
+    
+    .responsive-box {
+      background: orange;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .responsive-box {
+        display: block;
+        background: pink;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .responsive-box {
+        display: inline-block;
+        background: lightseagreen;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .responsive-box {
+        display: flex;
+        justify-content: center;
+        background: steelblue;
+        color: white;
+      }
+    }
+
+    
+    .hidden-none {
+      display: none;
+    }
+
+    .hidden-visibility {
+      visibility: hidden;
+    }
+
+    
+    @media (max-width: 600px) {
+      .hide-mobile {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .hide-desktop {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Task 1: Display Property Showcase</h1>
+
+  <!-- 1. Block vs Inline vs Inline-Block -->
+  <section>
+    <h2>1️⃣ Block vs Inline vs Inline-Block</h2>
+    <div class="block">Block Element</div>
+    <span class="inline">Inline Element</span>
+    <span class="inline">Inline Element</span>
+    <div class="inline-block">Inline-Block 1</div>
+    <div class="inline-block">Inline-Block 2</div>
+  </section>
+
+  <!-- 2. Table Display without table -->
+  <section>
+    <h2>2️⃣ Table Display (No &lt;table&gt; Tag)</h2>
+    <div class="table">
+      <div class="row">
+        <div class="cell">Row 1 Col 1</div>
+        <div class="cell">Row 1 Col 2</div>
+      </div>
+      <div class="row">
+        <div class="cell">Row 2 Col 1</div>
+        <div class="cell">Row 2 Col 2</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Responsive Display -->
+  <section>
+    <h2>3️⃣ Responsive Display with Media Queries</h2>
+    <div class="responsive-box">Resize the window!</div>
+  </section>
+
+  <!-- 4. Hidden Elements -->
+  <section>
+    <h2>4️⃣ Hidden Elements</h2>
+    <div class="block">Normal Visible</div>
+    <div class="block hidden-none">Hidden (display: none)</div>
+    <div class="block hidden-visibility">Hidden (visibility: hidden)</div>
+    <div class="block hide-mobile">I disappear on Mobile (≤600px)</div>
+    <div class="block hide-desktop">I disappear on Desktop (≥1025px)</div>
+  </section>
+</body>
+</html>

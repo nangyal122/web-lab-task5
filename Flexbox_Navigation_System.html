@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4: Flexbox Navigation System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header */
+    header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Main navigation (desktop default) */
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background: #444;
+    }
+
+    /* Dropdown menu */
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      flex-direction: column;
+      background: #444;
+      min-width: 150px;
+      z-index: 100;
+    }
+
+    nav li:hover > .dropdown {
+      display: flex;
+    }
+
+    /* Sidebar navigation (desktop view) */
+    .sidebar {
+      background: #eee;
+      width: 200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: calc(100vh - 60px);
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      padding: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      color: #333;
+    }
+
+    /* Hamburger button (hidden by default) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+    }
+
+    /* Mobile Navigation (slide-in) */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 250px;
+      height: 100%;
+      background: #222;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease-in-out;
+      padding-top: 60px;
+    }
+
+    .mobile-nav.open {
+      transform: translateX(100%);
+      left: 0;
+    }
+
+    .mobile-nav a {
+      padding: 15px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid #444;
+    }
+
+    .mobile-nav .dropdown {
+      position: static;
+      display: none;
+      flex-direction: column;
+    }
+
+    .mobile-nav li.open > .dropdown {
+      display: flex;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <h1>Task 4: Flexbox Nav</h1>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Services ▾</a>
+          <ul class="dropdown">
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">SEO</a></li>
+            <li><a href="#">Hosting</a></li>
+          </ul>
+        </li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sidebar navigation -->
+  <aside class="sidebar">
+    <a href="#">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Logout</a>
+  </aside>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li class="has-dropdown">
+        <a href="#">Services ▾</a>
+        <ul class="dropdown">
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">SEO</a></li>
+          <li><a href="#">Hosting</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+
+    hamburger.addEventListener("click", () => {
+      mobileNav.classList.toggle("open");
+    });
+
+    // Dropdown toggle on mobile
+    document.querySelectorAll(".mobile-nav .has-dropdown > a").forEach(anchor => {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        anchor.parentElement.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>

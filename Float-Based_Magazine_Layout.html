@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2: Float-Based Magazine Layout</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      overflow: hidden; /* Clear floats */
+    }
+
+    /* Sidebar and main content using floats */
+    .sidebar {
+      float: left;
+      width: 25%;
+      background: #eee;
+      padding: 15px;
+      margin-right: 2%;
+      box-sizing: border-box;
+    }
+
+    .main {
+      float: left;
+      width: 73%;
+      box-sizing: border-box;
+    }
+
+    /* Multi-column layout */
+    .article {
+      column-count: 2;
+      column-gap: 30px;
+    }
+
+    /* Wrapped image */
+    .article img {
+      float: left;
+      margin: 10px 15px 10px 0;
+      width: 40%;
+      border-radius: 8px;
+    }
+
+    footer {
+      clear: both;
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .sidebar {
+        width: 100%;
+        float: none;
+        margin: 0 0 20px 0;
+      }
+      .main {
+        width: 100%;
+        float: none;
+      }
+      .article {
+        column-count: 1; /* Single column on smaller screens */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .article img {
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 10px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Task 2: Float-Based Magazine Layout</h1>
+    <p>A simple magazine-style layout using only floats</p>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <p>This sidebar contains related links, ads, or categories.</p>
+      <ul>
+        <li>Latest News</li>
+        <li>Popular Articles</li>
+        <li>Archives</li>
+      </ul>
+    </aside>
+
+    <section class="main">
+      <h2>Main Article</h2>
+      <div class="article">
+        <img src="https://picsum.photos/400/250" alt="Magazine Image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis sapien vitae justo pulvinar eleifend. Donec luctus massa et turpis suscipit, non efficitur justo malesuada. Cras eu magna sit amet lacus volutpat facilisis. Sed consequat diam sed nulla tempor, vel elementum lacus scelerisque.</p>
+        <p>Aliquam erat volutpat. Vivamus tincidunt velit vel augue dictum, nec tempus nulla efficitur. Pellentesque ut condimentum lacus. Nulla facilisi. Duis sit amet ultricies neque, ut feugiat lorem.</p>
+        <p>Integer maximus sapien vel eros pretium, eu bibendum sem volutpat. Sed porta volutpat eros, in elementum justo tincidunt in. Fusce vehicula erat nec erat blandit, in suscipit est lacinia.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>

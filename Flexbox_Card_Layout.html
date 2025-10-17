@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5: Flexbox Card Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Card container */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* Card style */
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* pushes actions to bottom */
+      flex: 1 1 calc(100% - 40px); /* default: full width on mobile */
+      max-width: 350px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card p {
+      flex-grow: 1; /* makes text expand and pushes actions down */
+    }
+
+    .card-actions {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .card-actions button {
+      background: #333;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .card-actions button:hover {
+      background: #555;
+    }
+
+    /* Responsive breakpoints */
+    @media (min-width: 600px) {
+      .card {
+        flex: 1 1 calc(50% - 40px); /* 2 columns on tablets */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card {
+        flex: 1 1 calc(33.333% - 40px); /* 3 columns on desktop */
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Task 5: Flexbox Card Layout</h1>
+
+  <div class="card-container">
+    <div class="card">
+      <h2>Card 1</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget fermentum justo.</p>
+      <div class="card-actions">
+        <button>Read More</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Card 2</h2>
+      <p>Proin et sapien nec nulla ullamcorper egestas. Donec viverra orci ut justo aliquet.</p>
+      <div class="card-actions">
+        <button>Read More</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Card 3</h2>
+      <p>
+        This card has more text to show equal height behavior across cards. 
+        Even with extra lines, the button stays aligned at the bottom.
+      </p>
+      <div class="card-actions">
+        <button>Read More</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

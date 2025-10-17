@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 16 - Common Breakpoint Implementation</title>
+  <style>
+    /* ===== Base (Mobile First) Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #f1f2f6;
+      color: #2d3436;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #0984e3;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
+    .breakpoint {
+      display: inline-block;
+      background-color: #74b9ff;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    /* ===== Mobile (0px - 767px) ===== */
+    body {
+      background-color: #dfe6e9;
+    }
+
+    .breakpoint {
+      background-color: #00b894;
+    }
+
+    /* ===== Tablet (768px and up) ===== */
+    @media (min-width: 768px) {
+      body {
+        background-color: #ffeaa7;
+      }
+      .breakpoint {
+        background-color: #fdcb6e;
+      }
+    }
+
+    /* ===== Small Desktop (1024px and up) ===== */
+    @media (min-width: 1024px) {
+      body {
+        background-color: #fab1a0;
+      }
+      .breakpoint {
+        background-color: #e17055;
+      }
+    }
+
+    /* ===== Large Desktop (1200px and up) ===== */
+    @media (min-width: 1200px) {
+      body {
+        background-color: #a29bfe;
+      }
+      .breakpoint {
+        background-color: #6c5ce7;
+      }
+    }
+
+    /* ===== Extra Large (1400px and up) ===== */
+    @media (min-width: 1400px) {
+      body {
+        background-color: #81ecec;
+      }
+      .breakpoint {
+        background-color: #00cec9;
+      }
+    }
+
+    footer {
+      background-color: #0984e3;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <header>Task 16: Common Breakpoint Implementation</header>
+
+  <div class="container">
+    <p class="info">
+      Resize the browser window to see the background and box color change at different breakpoints.
+    </p>
+    <div class="breakpoint" id="screenSize">Mobile View</div>
+  </div>
+
+  <footer>© 2025 Common Breakpoint Demo | Created by Nangyal Khan</footer>
+
+  <script>
+    // Optional JS to display the current width dynamically
+    const screenBox = document.getElementById("screenSize");
+    function updateBreakpoint() {
+      const width = window.innerWidth;
+      if (width < 768) screenBox.textContent = "Mobile View (0 - 767px)";
+      else if (width < 1024) screenBox.textContent = "Tablet View (768px - 1023px)";
+      else if (width < 1200) screenBox.textContent = "Small Desktop (1024px - 1199px)";
+      else if (width < 1400) screenBox.textContent = "Large Desktop (1200px - 1399px)";
+      else screenBox.textContent = "Extra Large Screen (1400px and above)";
+    }
+
+    window.addEventListener("resize", updateBreakpoint);
+    window.addEventListener("load", updateBreakpoint);
+  </script>
+</body>
+</html>
